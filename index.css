@@ -1,0 +1,23 @@
+.body {
+  background-color: #000;
+}
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 45px 200px 60px;
+}
+
+.header {
+  width: 100%;
+  height: 74px;
+  border-bottom: 1px solid #545454;
+}
+
+.header__logo {
+  width: 142px;
+  height: 33px;
+  background-image: url('./images/logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
