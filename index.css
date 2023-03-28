@@ -96,3 +96,48 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.elements-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+
+.element {
+  width: 282px;
+  height: 361px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.element__image {
+  border-radius: 10px 10px 0 0;
+}
+
+.element__text-block {
+  padding: 25px 15px 31px 21px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.element__text {
+  margin: 0;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.element__heart-sign {
+  width: 22px;
+  height: 19px;
+  background-image: url('./images/heart.svg');
+}
