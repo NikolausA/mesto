@@ -1,7 +1,11 @@
+@import url('./vendor/normalize.css');
+@import url('./vendor/fonts/fonts.css');
+
 .body {
   background-color: #000;
 }
 .page {
+  font-family: 'Inter', 'Arial', sans-serif;
   max-width: 1280px;
   margin: 0 auto;
   padding: 45px 200px 60px;
@@ -20,4 +24,75 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.profile {
+  display: flex;
+  /* justify-content: space-between; */
+  width: 100%;
+  margin: 40px auto 50px;
+}
+
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.profile__info {
+  max-width: 336px;
+  display: grid;
+  grid-template-columns: 294px 24px;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+    "name button"
+    "profession profession";
+  gap: 16px 18px;
+}
+
+.profile__info-name {
+  margin: 0;
+  grid-area: name;
+  /* max-width: 294px; */
+  align-self: end;
+  color: #fff;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+.profile__info-edit-button {
+  grid-area: button;
+  background-image: url('./images/edit-button.svg');
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  align-self: end;
+}
+
+.profile__info-profession {
+  margin: 0;
+  grid-area: profession;
+  /* max-width: 336px; */
+  color: #fff;
+  font-family: Inter;
+  font-style: regular;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.profile__add-button {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #fff;
+  margin-left: auto;
+  align-self: center;
+  background-image: url('./images/plus-sign.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
