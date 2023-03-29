@@ -65,6 +65,7 @@
 }
 
 .profile__info-edit-button {
+  padding-bottom: 4px;
   grid-area: button;
   background-image: url('./images/edit-button.svg');
   width: 24px;
@@ -103,12 +104,14 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  row-gap: 20px;
+  gap: 20px 17px;
+  /* row-gap: 20px; */
 }
 
 .element {
   width: 282px;
   height: 361px;
+  list-style-type: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -122,7 +125,7 @@
 }
 
 .element__text-block {
-  padding: 25px 15px 31px 21px;
+  padding: 25px 17px 31px 21px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -140,4 +143,16 @@
   width: 22px;
   height: 19px;
   background-image: url('./images/heart.svg');
+}
+
+.footer {
+  margin-top: 66px;
+}
+.footer__copyright {
+  margin: 0;
+  color: #545454;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
 }
