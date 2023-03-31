@@ -9,6 +9,10 @@
 3. Grid
 4. Nested BEM структура стилей сайта
 
+Ссылка на сайт
+https://nikolausa.github.io/mesto/
+
+
 # Проект: Место
 
 ### Обзор
