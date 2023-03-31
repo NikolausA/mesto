@@ -1,0 +1,19 @@
+.profile__info-name {
+  margin: 0;
+  grid-area: name;
+  /* max-width: 294px; */
+  align-self: end;
+  color: #fff;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+}
+@media (max-width: 320px) {
+    .profile__info-name {
+        font-size: 27px;
+        line-height: 33px;
+        justify-self: end;
+      }
+}

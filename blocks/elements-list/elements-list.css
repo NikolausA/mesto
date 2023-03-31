@@ -1,0 +1,14 @@
+.elements-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 17px;
+}
+@media (max-width: 320px) {
+    .elements-list {
+        flex-direction: column;
+        align-items: center;
+      }
+}

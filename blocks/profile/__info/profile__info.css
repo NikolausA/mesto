@@ -1,0 +1,22 @@
+.profile__info {
+  max-width: 336px;
+  display: grid;
+  grid-template-columns: 294px 24px;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+    "name button"
+    "profession profession";
+  gap: 16px 18px;
+}
+@media (max-width: 320px) {
+    .profile__info {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 235px 37px;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+          "name button"
+          "profession profession";
+        gap: 8px 10px;
+      }
+}

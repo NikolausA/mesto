@@ -1,0 +1,16 @@
+.profile__info-profession {
+  margin: 0;
+  grid-area: profession;
+  color: #fff;
+  font-family: Inter;
+  font-style: regular;
+  font-size: 18px;
+  line-height: 22px;
+}
+@media (max-width: 320px) {
+    .profile__info-profession {
+        font-size: 14px;
+        line-height: 17px;
+        justify-self: center;
+      }
+}

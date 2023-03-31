@@ -1,0 +1,8 @@
+.element__heart-sign {
+  width: 22px;
+  height: 19px;
+  background-image: url('../../../images/heart.svg');
+}
+.element__heart-sign:hover {
+  opacity: 0.5;
+}
