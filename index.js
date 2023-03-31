@@ -8,6 +8,8 @@ let popupInputProfession = popupProfileEdit.querySelector('.popup__input_type_pr
 
 editButton.addEventListener('click', () => {
   popupProfileEdit.classList.add('popup-open');
+  popupInputName.value = "Жак-Ив Кусто";
+  popupInputProfession.value = "Исследователь океана";
 });
 
 popupClose.addEventListener('click', () => {
@@ -17,5 +19,8 @@ popupClose.addEventListener('click', () => {
 });
 
 popupForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+  // event.preventDefault();
+  popupProfileEdit.classList.remove('popup-open');
+  popupInputName.value = "";
+  popupInputProfession.value = "";
 });

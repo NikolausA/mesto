@@ -28,7 +28,6 @@
 
 .profile {
   display: flex;
-  /* justify-content: space-between; */
   width: 100%;
   margin: 40px auto 50px;
 }
@@ -76,10 +75,13 @@
   align-self: end;
 }
 
+.profile__info-edit-button:hover {
+  opacity: 0.6;
+}
+
 .profile__info-profession {
   margin: 0;
   grid-area: profession;
-  /* max-width: 336px; */
   color: #fff;
   font-family: Inter;
   font-style: regular;
@@ -92,10 +94,15 @@
   height: 50px;
   border: 2px solid #fff;
   margin-left: auto;
+  box-sizing: border-box;
   align-self: center;
   background-image: url('./images/plus-sign.svg');
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
 }
 
 .elements-list {
@@ -105,7 +112,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px 17px;
-  /* row-gap: 20px; */
 }
 
 .element {
@@ -143,6 +149,10 @@
   width: 22px;
   height: 19px;
   background-image: url('./images/heart.svg');
+}
+
+.element__heart-sign:hover {
+  opacity: 0.5;
 }
 
 .footer {
@@ -203,6 +213,10 @@
   cursor: pointer;
 }
 
+.popup__close:hover {
+  opacity: 0.6;
+}
+
 .popup__title {
   width: 100%;
   margin: 0;
@@ -214,7 +228,7 @@
 
 .popup__submit {
   width: 100%;
-  padding: 18px 0 18px;
+  padding: 18px 0;
   background-color: #000;
   color: #fff;
   outline: none;
@@ -224,6 +238,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
+}
+
+.popup__submit:hover {
+  opacity: 0.8;
 }
 
 .popup__input {
@@ -248,3 +266,125 @@
   margin: 30px 0 48px;
 }
 
+@media (max-width: 1024px) {
+  .page {
+    padding: 28px 20px 36px;
+    box-sizing: border-box;
+  }
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 320px) {
+  .page {
+    padding: 28px 0 36px;
+    box-sizing: border-box;
+  }
+
+  .header {
+    width: 100%;
+    height: 56px;
+  }
+
+  .header__logo {
+    width: 103px;
+    height: 24px;
+    margin-left: 27px;
+  }
+
+  .profile {
+    margin: 42px auto 36px;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 19px;
+    box-sizing: border-box;
+  }
+
+  .profile__avatar {
+    margin: 0 0 26px 0;
+  }
+
+  .profile__info {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 235px 37px;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+      "name button"
+      "profession profession";
+    gap: 8px 10px;
+  }
+  
+  .profile__info-name {
+    font-size: 27px;
+    line-height: 33px;
+    justify-self: end;
+  }
+
+  .profile__info-edit-button {
+    padding-bottom: 14px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .profile__info-profession {
+    font-size: 14px;
+    line-height: 17px;
+    justify-self: center;
+  }
+
+  .profile__add-button {
+    width: 100%;
+    height: 48px;
+    margin: 32px 0 0;
+  }
+  
+  .elements-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer {
+    margin-top: 50px;
+    padding: 0 19px;
+  }
+
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .popup__content {
+    max-width: 282px;
+    padding: 25px 22px;
+  }
+
+  .popup__close {
+    width: 20px;
+    height: 20px;
+    right: -1px;
+    top: -40px;
+  }
+
+  .popup__title {
+    font-size: 18px;
+  line-height: 22px;
+  }
+
+  .popup__submit {
+    font-size: 14px;
+    line-height: 17px;
+    padding: 14px 0;
+  }
+
+  .popup__input_type_name {
+    margin-top: 75px;
+  }
+  
+  .popup__input_type_profession {
+    margin: 30px 0 45px;
+  }
+}
