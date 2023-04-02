@@ -1,7 +1,15 @@
 .element__heart-sign {
   width: 22px;
   height: 19px;
+  border: none;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: transparent;
   background-image: url('../../../images/heart.svg');
+  cursor: pointer;
+  transition: opacity 0.7s;
 }
 .element__heart-sign:hover {
   opacity: 0.5;

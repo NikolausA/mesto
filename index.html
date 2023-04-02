@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-  <title>Mesto</title>
+  <title lang="ru">Mesto</title>
 </head>
 <body class="body">
   <div class="page">
@@ -14,77 +14,89 @@
       </div>
     </header>
     <main class="content">
-      <section class="profile">
-        <img class="profile__avatar" src="./images/Cousteau.jpg" alt="Аватар Жака-Ива Кусто">
+      <section class="profile" aria-label="Секция содержит информацию о пользователе">
+        <img class="profile__avatar" src="./images/Cousteau.jpg" alt="Аватар пользователя">
         <div class="profile__info">
-          <p class="profile__info-name">Жак-Ив Кусто</p>
+          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
           <p class="profile__info-profession">Исследователь океана</p>
-          <div class="profile__info-edit-button"></div>
+          <button type="button" class="profile__info-edit-button" aria-label="кнопка для окрытия всплывающего окна"></button>
         </div>
-        <div class="profile__add-button"></div>
+        <button type="button" class="profile__add-button" aria-label="кнопка для добавления пользователей"></button>
       </section>
-      <section class="elements">
-        <ul class="elements-list">
-          <li class="element">
-            <img class="element__image" src="./images/karachaevsk.jpg" alt="фото древней крепости Карачаевска">
-            <div class="element__text-block">
-              <p class="element__text">Карачаевск</p>
-              <div class="element__heart-sign"></div>
-            </div>                      
+      <section class="elements" aria-label="секция с карточками мест">
+        <ul class="elements__elements-list">
+          <li>
+            <article class="element">
+              <img class="element__image" src="./images/karachaevsk.jpg" alt="фото древней крепости Карачаевска">
+              <div class="element__text-block">
+                <h2 class="element__text">Карачаевск</h2>
+                <button class="element__heart-sign" aria-label="кнопка выбора понравивщегося места"></button>
+              </div>  
+            </article>                               
           </li>
-          <li class="element">
-            <img class="element__image" src="./images/elbrus.jpg" alt="фото горы Эльбрус">
-            <div class="element__text-block">
-              <p class="element__text">Гора Эльбрус</p>
-              <div class="element__heart-sign"></div>
-            </div>
+          <li>
+            <article class="element">
+              <img class="element__image" src="./images/elbrus.jpg" alt="фото горы Эльбрус">
+              <div class="element__text-block">
+                <h2 class="element__text">Гора Эльбрус</h2>
+                <button class="element__heart-sign" aria-label="кнопка выбора понравивщегося места"></button>
+              </div>
+            </article>      
           </li>
-          <li class="element">
-            <img class="element__image" src="./images/dombai.jpg" alt="фото склона горы Домбай">
-            <div class="element__text-block">
-              <p class="element__text">Домбай</p>
-              <div class="element__heart-sign"></div>
-            </div>
+          <li>
+            <article class="element">
+              <img class="element__image" src="./images/dombai.jpg" alt="фото склона горы Домбай">
+              <div class="element__text-block">
+                <h2 class="element__text">Домбай</h2>
+                <button class="element__heart-sign" aria-label="кнопка выбора понравивщегося места"></button>
+              </div>
+            </article>          
           </li>
-          <li class="element">
-            <img class="element__image" src="./images/elbrus.jpg" alt="фото горы Эльбрус">
-            <div class="element__text-block">
-              <p class="element__text">Гора Эльбрус</p>
-              <div class="element__heart-sign"></div>
-            </div>
+          <li>
+            <article class="element">
+              <img class="element__image" src="./images/elbrus.jpg" alt="фото горы Эльбрус">
+              <div class="element__text-block">
+                <h2 class="element__text">Гора Эльбрус</h2>
+                <button class="element__heart-sign" aria-label="кнопка выбора понравивщегося места"></button>
+              </div>
+            </article>          
           </li>
-          <li class="element">
-            <img class="element__image" src="./images/dombai.jpg" alt="фото склона горы Домбай">
-            <div class="element__text-block">
-              <p class="element__text">Домбай</p>
-              <div class="element__heart-sign"></div>
-            </div>
+          <li>
+            <article class="element">
+              <img class="element__image" src="./images/dombai.jpg" alt="фото склона горы Домбай">
+              <div class="element__text-block">
+                <h2 class="element__text">Домбай</h2>
+                <button class="element__heart-sign" aria-label="кнопка выбора понравивщегося места"></button>
+              </div>
+            </article>
           </li>
-          <li class="element">
-            <img class="element__image" src="./images/karachaevsk.jpg" alt="фото древней крепости Карачаевска">
-            <div class="element__text-block">
-              <p class="element__text">Карачаевск</p>
-              <div class="element__heart-sign"></div>
-            </div>
+          <li>
+            <article class="element">
+              <img class="element__image" src="./images/karachaevsk.jpg" alt="фото древней крепости Карачаевска">
+              <div class="element__text-block">
+                <h2 class="element__text">Карачаевск</h2>
+                <button class="element__heart-sign" aria-label="кнопка выбора понравивщегося места"></button>
+              </div>
+            </article>   
           </li>
         </ul>
       </section>
     </main>
     <footer class="footer">
-      <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
+      <p lang="ru" class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
   </div>
-  <section class="popup popup_frofile-edit">
-    <div class="popup__content">
-      <div class="popup__close"></div>
-      <h1 class="popup__title">Редактировать профиль</h1>
-      <form class="popup__form" action="">
-        <input class="popup__input popup__input_type_name" name="name" type="text">
-        <input class="popup__input popup__input_type_profession" name="profession" type="text">
-        <button class="popup__submit" type="submit">Сохранить</button>
+  <div class="popup">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="кнопка закрытия всплывающего окна"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form lang="ru" class="popup__form" action="#" name="popupForm">
+        <input class="popup__input popup__input_type_name" name="name" type="text" placeholder="Имя">
+        <input class="popup__input popup__input_type_profession" name="profession" type="text" placeholder="Занятие">
+        <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
     </div>
-  </section>
-  <script src="./index.js"></script>
+  </div>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+.elements__elements-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 17px;
+  list-style-type: none;
+}
+@media (max-width: 620px) {
+  .elements__elements-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,14 +1,26 @@
 .profile__info-profession {
+  max-width: 294px;
   margin: 0;
   grid-area: profession;
   color: #fff;
-  font-family: Inter;
-  font-style: regular;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
   font-size: 18px;
   line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
+
+@media (max-width: 1080px) {
+  .profile__info-profession {
+      justify-self: center;
+    }
+}
+
 @media (max-width: 320px) {
     .profile__info-profession {
+      max-width: 282px;
         font-size: 14px;
         line-height: 17px;
         justify-self: center;

@@ -1,19 +1,23 @@
 .profile__info-name {
+  max-width: 294px;
   margin: 0;
   grid-area: name;
-  /* max-width: 294px; */
   align-self: end;
   color: #fff;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 @media (max-width: 320px) {
-    .profile__info-name {
-        font-size: 27px;
-        line-height: 33px;
-        justify-self: end;
-      }
+  .profile__info-name {
+    max-width: 189px;
+    font-size: 27px;
+    line-height: 33px;
+    justify-self: end;
+  }
 }
