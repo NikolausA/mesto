@@ -22,7 +22,8 @@ function removeClass() {
 }
 
 function submitForm(event) {
-  event.preventDefault(popupInputName.value);
+  event.preventDefault(event);
+  popupProfileEdit.classList.remove('popup_opened');
   document.querySelector('.profile__info-name').textContent = popupInputName.value;
   document.querySelector('.profile__info-profession').textContent = popupInputProfession.value;
 }
