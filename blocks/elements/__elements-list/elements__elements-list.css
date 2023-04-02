@@ -1,5 +1,6 @@
 .elements__elements-list {
-  margin: 0;
+  max-width: 880px;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   justify-content: space-between;

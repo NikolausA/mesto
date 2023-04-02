@@ -1,11 +1,13 @@
 .header {
-  width: 100%;
-  min-height: 74px;
+  max-width: 880px;
+  margin: 0 auto;
+  padding-bottom: 41px;
   border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
 @media (max-width: 320px) {
     .header {
-        min-height: 56px;
+      width: 100%;
+      padding-bottom: 32px;
       }
 }
