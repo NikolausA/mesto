@@ -9,7 +9,7 @@
   height: 24px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 24px 24px;
+  background-size: 10px 10px;
   background-color: transparent;
   align-self: end;
   cursor: pointer;
@@ -21,7 +21,7 @@
 @media (max-width: 320px) {
     .profile__info-edit-button {
       margin-bottom: 8px;
-      background-size: 18px 18px;
+      background-size: 7.5px 7.5px;
       width: 18px;
       height: 18px;
       }

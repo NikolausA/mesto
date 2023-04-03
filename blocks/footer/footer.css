@@ -3,7 +3,6 @@
 }
 @media (min-width: 1281px) {
   .footer {
-    margin-top: 66px;
     margin-left: calc((100% - 880px) / 2);
   }
 }
