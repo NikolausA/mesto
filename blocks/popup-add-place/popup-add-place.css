@@ -1,5 +1,6 @@
 .popup-add-place {
-  display: none;
+  display: flex;
+  visibility: hidden;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -9,4 +10,6 @@
   left: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: visibility 0.7s, opacity 0.7s;
 }
