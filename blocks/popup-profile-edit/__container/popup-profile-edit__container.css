@@ -1,4 +1,4 @@
-.popup__container {
+.popup-profile-edit__container {
   max-width: 430px;
   padding: 34px 36px 37px;
   box-sizing: border-box;
@@ -10,14 +10,14 @@
 }
 
 @media (max-width: 460px) {
-  .popup__container {
+  .popup-profile-edit__container {
       max-width: 300px;
       padding: 25px 22px;
     }
 }
 
 @media (max-width: 320px) {
-    .popup__container {
+    .popup-profile-edit__container {
         max-width: 282px;
         padding: 25px 22px;
       }
