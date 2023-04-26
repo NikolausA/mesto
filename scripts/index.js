@@ -44,10 +44,10 @@ const popupProfileEditForm = popupProfileEdit.querySelector(
 );
 const addNewCardForm = popupAddNewCard.querySelector(".popup-add-place__form");
 const popupInputName = popupProfileEdit.querySelector(
-  ".popup__input_type_name"
+  'input[name="name"]'
 );
 const popupInputProfession = popupProfileEdit.querySelector(
-  ".popup__input_type_profession"
+  'input[name="profession"]'
 );
 const profileName = document.querySelector(".profile__info-name");
 const profileProfession = document.querySelector(".profile__info-profession");
