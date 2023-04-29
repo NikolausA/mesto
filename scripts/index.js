@@ -1,54 +1,19 @@
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+import {initialCards} from "./cards.js";
 
 const cardTemplate = document.querySelector(".card-template");
 const card = document.querySelector(".element");
-const elementsList = document.querySelector(".elements__elements-list");
+const elementsContainer = document.querySelector(".elements__elements-list");
 const popupProfileEdit = document.querySelector(".popup-profile-edit");
 const popupAddNewCard = document.querySelector(".popup-add-place");
 const editButton = document.querySelector(".profile__info-edit-button");
-const addNewCardButton = document.querySelector(
-  ".profile__add-new-card-button"
-);
-const popupProfileEditClose = document.querySelector(
-  ".popup-profile-edit__close"
-);
+const addNewCardButton = document.querySelector(".profile__add-new-card-button");
+const popupProfileEditClose = document.querySelector(".popup-profile-edit__close");
 const popupAddNewCardClose = document.querySelector(".popup-add-place__close");
 const popupImageClose = document.querySelector(".popup-image__close");
-const popupProfileEditForm = popupProfileEdit.querySelector(
-  ".popup-profile-edit__form"
-);
+const popupProfileEditForm = popupProfileEdit.querySelector(".popup-profile-edit__form");
 const addNewCardForm = popupAddNewCard.querySelector(".popup-add-place__form");
-const popupInputName = popupProfileEdit.querySelector(
-  'input[name="name"]'
-);
-const popupInputProfession = popupProfileEdit.querySelector(
-  'input[name="profession"]'
-);
+const popupInputName = popupProfileEdit.querySelector('input[name="name"]');
+const popupInputProfession = popupProfileEdit.querySelector('input[name="profession"]');
 const profileName = document.querySelector(".profile__info-name");
 const profileProfession = document.querySelector(".profile__info-profession");
 
@@ -62,7 +27,6 @@ const handleOpen = (event, src = '', text = '') => {
   let elementClass = event.target.className;
   if (elementClass === "element__image") {
     let popup = document.querySelector('.popup-image');
-    console.log(popup);
     let popupImage = popup.querySelector('.popup-image__image');
     let popupText = popup.querySelector('.popup-image__text');
     popupImage.src = src;
@@ -110,8 +74,8 @@ const createCardElement = (card) => {
   return cardElement;
 };
 
-renderCard = (cardItem) => {
-  elementsList.prepend(cardItem);
+const renderCard = (cardItem) => {
+  elementsContainer.prepend(cardItem);
 };
 
 initialCards.forEach((card) => {
@@ -121,12 +85,8 @@ initialCards.forEach((card) => {
 const handleAddNewPlaceSubmit = (event) => {
   event.preventDefault();
 
-  const nameInput = addNewCardForm.querySelector(
-    ".popup-add-place__input_type_name"
-  );
-  const linkInput = addNewCardForm.querySelector(
-    ".popup-add-place__input_type_link"
-  );
+  const nameInput = addNewCardForm.querySelector('input[name="place-name"]');
+  const linkInput = addNewCardForm.querySelector('input[name="link"]');
   const name = nameInput.value;
   const link = linkInput.value;
 
