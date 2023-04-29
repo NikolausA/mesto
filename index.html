@@ -20,9 +20,9 @@
         <div class="profile__info">
           <h1 class="profile__info-name">Жак-Ив Кусто</h1>
           <p class="profile__info-profession">Исследователь океана</p>
-          <button type="button" class="profile__info-edit-button"  data-modal="popup-profile-edit" aria-label="кнопка для окрытия всплывающего окна"></button>
+          <button type="button" class="profile__info-edit-button"  aria-label="кнопка для окрытия всплывающего окна"></button>
         </div>
-        <button type="button" class="profile__add-new-card-button" data-modal="popup-add-place" aria-label="кнопка для добавления новой карточки"></button>
+        <button type="button" class="profile__add-new-card-button" aria-label="кнопка для добавления новой карточки"></button>
       </section>
       <section class="elements" aria-label="секция с карточками мест">
         <ul class="elements__elements-list"></ul>
@@ -32,34 +32,34 @@
       <p lang="ru" class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
   </div>
-  <div class="popup-profile-edit">
-    <div class="popup-profile-edit__container">
-      <button type="button" class="popup-profile-edit__close" aria-label="кнопка закрытия всплывающего окна"></button>
-      <h2 class="popup-profile-edit__title">Редактировать профиль</h2>
-      <form lang="ru" class="popup-profile-edit__form" action="#" name="popupForm">
-        <input class="popup-profile-edit__input" name="name" type="text" placeholder="Имя">
-        <input class="popup-profile-edit__input" name="profession" type="text" placeholder="Занятие">
-        <button class="popup-profile-edit__submit-button" type="submit">Сохранить</button>
+  <div class="popup popup_type_profile-edit">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="кнопка закрытия всплывающего окна"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form lang="ru" class="popup__form" action="#" name="popupForm-profile-edit">
+        <input class="popup__input" name="name" type="text" placeholder="Имя">
+        <input class="popup__input" name="profession" type="text" placeholder="Занятие">
+        <button class="popup__submit-button" type="submit">Сохранить</button>
       </form>
     </div>
   </div>
-  <div class="popup-add-place">
-    <div class="popup-add-place__container">
-      <button type="button" class="popup-add-place__close" aria-label="кнопка закрытия всплывающего окна"></button>
-      <h2 class="popup-add-place__title">Новое место</h2>
-      <form lang="ru" class="popup-add-place__form" action="#" name="popupForm">
-        <input class="popup-add-place__input" name="place-name" type="text" placeholder="Название">
-        <input class="popup-add-place__input" name="link" type="text" placeholder="Ссылка на картинку">
-        <button class="popup-add-place__submit-button" type="submit">Создать</button>
+  <div class="popup popup_type_add-place">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="кнопка закрытия всплывающего окна"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form lang="ru" class="popup__form" action="#" name="popupForm-add-place">
+        <input class="popup__input" name="place-name" type="text" placeholder="Название">
+        <input class="popup__input" name="link" type="text" placeholder="Ссылка на картинку">
+        <button class="popup__submit-button" type="submit">Создать</button>
       </form>
     </div>
   </div>
-  <div class="popup-image">
-    <div class="popup-image__container">
-      <button type="button" class="popup-image__close" aria-label="кнопка закрытия всплывающего окна"></button>
-      <figure class="popup-image__wrapper">
-        <img src="#" class="popup-image__image" alt="#">
-        <figcaption class="popup-image__text"></figcaption>
+  <div class="popup popup_type_image">
+    <div class="popup__container popup__container_type_image">
+      <button type="button" class="popup__close" aria-label="кнопка закрытия всплывающего окна"></button>
+      <figure class="popup__wrapper">
+        <img src="#" class="popup__image" alt="#">
+        <figcaption class="popup__text"></figcaption>
       </figure>
     </div>
   </div>
