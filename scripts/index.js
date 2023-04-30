@@ -9,8 +9,6 @@ const imagePopup = document.querySelector(".popup_type_image");
 const profilePopupOpenButton = document.querySelector(".profile__info-edit-button");
 const cardPopupOpenButton = document.querySelector(".profile__add-new-card-button");
 const closeButtons = document.querySelectorAll(".popup__close");
-// const popupAddNewCardClose = document.querySelector(".popup-add-place__close");
-// const popupImageClose = document.querySelector(".popup-image__close");
 
 const profilePopupForm = profilePopup.querySelector('form[name="popupForm-profile-edit"]');
 const profilePopupInputName = profilePopupForm.querySelector('input[name="name"]');
@@ -23,7 +21,6 @@ const cardPopupInputLink = cardPopupForm.querySelector('input[name="link"]');
 
 const popupImage = imagePopup.querySelector('.popup__image');
 const popupText = imagePopup.querySelector('.popup__text');
-
 
 function setDefaultInputValue() {
   profilePopupInputName.value = profileName.textContent;
@@ -41,13 +38,16 @@ const getPopup = (event) => {
   } else if (elementClass === 'profile__add-new-card-button') {
     return cardPopup;
   }
-  return imagePopup;
+
+  return setPopupImageAttribte(imagePopup, event.target.src, event.target.alt);
 };
 
-const setPopupImageAttribte = (link, text) => {
-  popupImage.src = link;
+const setPopupImageAttribte = (popup, src, text) => {
+  popupImage.src = src;
   popupImage.alt = text;
   popupText.textContent = text;
+
+  return popup;
 } 
 
 const handleOpen = (event) => {
@@ -81,7 +81,7 @@ const createCardElement = (card) => {
   const handleLike = () => {
     likeButton.classList.toggle("element__heart-sign_actived");
   };
-  setPopupImageAttribte(card.link, card.name);
+
   elementImage.addEventListener('click', handleOpen);
   deleteButton.addEventListener("click", handleDelete);
   likeButton.addEventListener("click", handleLike);
@@ -118,16 +118,6 @@ const submitProfilePopupForm = (event) => {
   profileName.textContent = profilePopupInputName.value;
   profileProfession.textContent = profilePopupInputProfession.value;
 }
-
-// const images = document.querySelectorAll(".element__image");
-// images.forEach((image) => {
-//   image.addEventListener('click', (event) => {
-//     console.log('click');
-//     // const src = event.target.src;
-//     // const text = event.target.nextElementSibling.childNodes[1].textContent;
-//     // handleOpen(event);
-//   });
-// });
 
 profilePopupOpenButton.addEventListener("click", handleOpen);
 cardPopupOpenButton.addEventListener("click", handleOpen);
