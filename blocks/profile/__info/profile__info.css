@@ -8,7 +8,7 @@
     "profession profession";
   gap: 16px 18px;
 }
-@media (max-width: 320px) {
+@media (max-width: 360px) {
     .profile__info {
         width: 100%;
         grid-template-columns: 235px 37px;

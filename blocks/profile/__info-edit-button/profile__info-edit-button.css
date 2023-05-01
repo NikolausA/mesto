@@ -18,7 +18,7 @@
 .profile__info-edit-button:hover {
   opacity: 0.6;
 }
-@media (max-width: 320px) {
+@media (max-width: 360px) {
     .profile__info-edit-button {
       margin-bottom: 8px;
       background-size: 7.5px 7.5px;

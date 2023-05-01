@@ -27,36 +27,11 @@ function setDefaultInputValue() {
   profilePopupInputProfession.value = profileProfession.textContent;
 }
 
-const getPopup = (event) => {
-  const elementClass = event.target.className;
-  if (elementClass === 'popup__close' || elementClass === 'popup__form') { 
-    const parentElemet = event.target.parentNode.parentNode;
-    return parentElemet;
-  } else if (elementClass === 'profile__info-edit-button') {
-    setDefaultInputValue();
-    return profilePopup;
-  } else if (elementClass === 'profile__add-new-card-button') {
-    return cardPopup;
-  }
-
-  return setPopupImageAttribte(imagePopup, event.target.src, event.target.alt);
-};
-
-const setPopupImageAttribte = (popup, src, text) => {
-  popupImage.src = src;
-  popupImage.alt = text;
-  popupText.textContent = text;
-
-  return popup;
-} 
-
-const handleOpen = (event) => {
-  const popup = getPopup(event);
+const handleOpen = (popup) => {
   popup.classList.add('popup_opened');
 }
 
-const handleClose = (event) => {
-  const popup = getPopup(event);
+const handleClose = (popup) => {
   popup.classList.remove('popup_opened');
 };
 
@@ -82,7 +57,12 @@ const createCardElement = (card) => {
     likeButton.classList.toggle("element__heart-sign_actived");
   };
 
-  elementImage.addEventListener('click', handleOpen);
+  elementImage.addEventListener('click', (event) => {
+    popupImage.src = event.target.src;
+    popupImage.alt = event.target.alt;
+    popupText.textContent = event.target.alt;
+    handleOpen(imagePopup);
+  });
   deleteButton.addEventListener("click", handleDelete);
   likeButton.addEventListener("click", handleLike);
 
@@ -101,6 +81,8 @@ const handleAddNewPlaceSubmit = (event) => {
   event.preventDefault();
   const name = cardPopupInputName.value;
   const link = cardPopupInputLink.value;
+  cardPopupInputName.value = '';
+  cardPopupInputLink.value = '';
 
   const card = {
     name,
@@ -114,15 +96,21 @@ const handleAddNewPlaceSubmit = (event) => {
 
 const submitProfilePopupForm = (event) => {
   event.preventDefault(event);
-  handleClose(event);
+  handleClose(profilePopup);
   profileName.textContent = profilePopupInputName.value;
   profileProfession.textContent = profilePopupInputProfession.value;
 }
 
-profilePopupOpenButton.addEventListener("click", handleOpen);
-cardPopupOpenButton.addEventListener("click", handleOpen);
+profilePopupOpenButton.addEventListener("click", () => {
+  setDefaultInputValue();
+  handleOpen(profilePopup);
+});
+cardPopupOpenButton.addEventListener("click", () => {
+  handleOpen(cardPopup);
+});
 closeButtons.forEach((button) => {
-  button.addEventListener("click", handleClose);
+  const buttonsPopup = button.closest('.popup');
+  button.addEventListener("click", () => handleClose(buttonsPopup));
 });
 
 cardPopupForm.addEventListener("submit", handleAddNewPlaceSubmit);
