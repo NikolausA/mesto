@@ -5,6 +5,7 @@ const elementsContainer = document.querySelector(".elements__elements-list");
 const profilePopup = document.querySelector(".popup_type_profile-edit");
 const cardPopup = document.querySelector(".popup_type_add-place");
 const imagePopup = document.querySelector(".popup_type_image");
+const popupList = document.querySelectorAll(".popup");
 
 const profilePopupOpenButton = document.querySelector(".profile__info-edit-button");
 const cardPopupOpenButton = document.querySelector(".profile__add-new-card-button");
@@ -33,6 +34,13 @@ const handleOpen = (popup) => {
 
 const handleClose = (popup) => {
   popup.classList.remove('popup_opened');
+};
+
+const handleEscClose = (e) => {
+  if (e.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    handleClose(openedPopup);
+  }
 };
 
 const createCardElement = (card) => {
@@ -91,7 +99,7 @@ const handleAddNewPlaceSubmit = (event) => {
 
   renderCard(createCardElement(card));
 
-  handleClose(event);
+  handleClose(cardPopup);
 };
 
 const submitProfilePopupForm = (event) => {
@@ -113,5 +121,17 @@ closeButtons.forEach((button) => {
   button.addEventListener("click", () => handleClose(buttonsPopup));
 });
 
+popupList.forEach((popup) => {
+  popup.addEventListener('click', (e) => {
+    if (e.currentTarget === e.target) {
+      handleClose(popup);
+    }  
+  });
+  
+});
+
 cardPopupForm.addEventListener("submit", handleAddNewPlaceSubmit);
 profilePopupForm.addEventListener("submit", submitProfilePopupForm);
+document.addEventListener('keydown', (e) => {
+  handleEscClose(e);
+})
