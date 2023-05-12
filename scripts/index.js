@@ -30,13 +30,15 @@ function setDefaultInputValue() {
 
 const handleOpen = (popup) => {
   popup.classList.add('popup_opened');
-}
+  document.addEventListener('keydown', closeByEsc)
+};
 
 const handleClose = (popup) => {
+  document.removeEventListener('keydown', closeByEsc)
   popup.classList.remove('popup_opened');
 };
 
-const handleEscClose = (e) => {
+const closeByEsc = (e) => {
   if (e.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     handleClose(openedPopup);
@@ -85,12 +87,15 @@ initialCards.forEach((card) => {
   renderCard(createCardElement(card));
 });
 
-const handleAddNewPlaceSubmit = (event) => {
-  event.preventDefault();
+const handleAddNewPlaceSubmit = (e) => {
+  e.preventDefault();
   const name = cardPopupInputName.value;
   const link = cardPopupInputLink.value;
   cardPopupInputName.value = '';
   cardPopupInputLink.value = '';
+
+  e.submitter.classList.add('popup__submit-button_disabled');
+  e.submitter.disabled = true;
 
   const card = {
     name,
@@ -132,6 +137,4 @@ popupList.forEach((popup) => {
 
 cardPopupForm.addEventListener("submit", handleAddNewPlaceSubmit);
 profilePopupForm.addEventListener("submit", submitProfilePopupForm);
-document.addEventListener('keydown', (e) => {
-  handleEscClose(e);
-})
+
