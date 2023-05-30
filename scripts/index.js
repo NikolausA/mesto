@@ -1,4 +1,8 @@
-import {initialCards} from "./cards.js";
+import {initialCards} from "./initialCards.js";
+import {Card} from "./Card.js";
+import {FormValidator} from "./FormValidator.js";
+import {enableValidation as config} from "./configValidation.js";
+
 
 const cardTemplate = document.querySelector(".card-template");
 const elementsContainer = document.querySelector(".elements__elements-list");
@@ -28,7 +32,14 @@ function setDefaultInputValue() {
   profilePopupInputProfession.value = profileProfession.textContent;
 }
 
-const handleOpen = (popup) => {
+const setPopupImageAttributes = (link, name) => {
+  popupImage.src = link;
+  popupImage.alt = name;
+  popupText.textContent = name;
+};
+
+
+const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEsc)
 };
@@ -45,47 +56,14 @@ const closeByEsc = (e) => {
   }
 };
 
-const createCardElement = (card) => {
-  const cardElement = cardTemplate.content
-    .querySelector(".element")
-    .cloneNode(true);
-  const elementImage = cardElement.querySelector(".element__image");
-  const elementTitle = cardElement.querySelector(".element__text");
-
-  elementImage.src = card.link;
-  elementImage.alt = card.name;
-  elementTitle.textContent = card.name;
-
-  const deleteButton = cardElement.querySelector(".element__trash-sign");
-  const likeButton = cardElement.querySelector(".element__heart-sign");
-
-  const handleDelete = () => {
-    cardElement.remove();
-  };
-
-  const handleLike = () => {
-    likeButton.classList.toggle("element__heart-sign_actived");
-  };
-
-  elementImage.addEventListener('click', (event) => {
-    popupImage.src = event.target.src;
-    popupImage.alt = event.target.alt;
-    popupText.textContent = event.target.alt;
-    handleOpen(imagePopup);
-  });
-  deleteButton.addEventListener("click", handleDelete);
-  likeButton.addEventListener("click", handleLike);
-
-  return cardElement;
-};
-
 const renderCard = (cardItem) => {
   elementsContainer.prepend(cardItem);
 };
 
-initialCards.forEach((card) => {
-  renderCard(createCardElement(card));
-});
+initialCards.forEach((item) => {
+    const card = new Card(item, '.element', imagePopup, openPopup, setPopupImageAttributes);
+    renderCard(card.generateCard());
+  });
 
 const handleAddNewPlaceSubmit = (e) => {
   e.preventDefault();
@@ -116,10 +94,10 @@ const submitProfilePopupForm = (event) => {
 
 profilePopupOpenButton.addEventListener("click", () => {
   setDefaultInputValue();
-  handleOpen(profilePopup);
+  openPopup(profilePopup);
 });
 cardPopupOpenButton.addEventListener("click", () => {
-  handleOpen(cardPopup);
+  openPopup(cardPopup);
 });
 closeButtons.forEach((button) => {
   const buttonsPopup = button.closest('.popup');
@@ -134,6 +112,12 @@ popupList.forEach((popup) => {
   });
   
 });
+
+const profileFormvalidator = new FormValidator(config, profilePopupForm);
+profileFormvalidator.enableValidation();
+
+const cardFormvalidator = new FormValidator(config, cardPopupForm);
+cardFormvalidator.enableValidation();
 
 cardPopupForm.addEventListener("submit", handleAddNewPlaceSubmit);
 profilePopupForm.addEventListener("submit", submitProfilePopupForm);

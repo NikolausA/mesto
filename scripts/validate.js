@@ -28,7 +28,7 @@ const disableButton = (config, button) => {
   button.classList.add(config.inactiveButtonClass);
 };
 
-export const toggleButtonState = (config, formElement, button) => {
+const toggleButtonState = (config, formElement, button) => {
   if (formElement.checkValidity()) {
     enableButton(config, button);
   } else {
