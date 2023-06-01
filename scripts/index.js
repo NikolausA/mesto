@@ -32,12 +32,18 @@ function setDefaultInputValue() {
   profilePopupInputProfession.value = profileProfession.textContent;
 }
 
-const setPopupImageAttributes = (link, name) => {
+const setPopupImageAttributes = (link, name, popup) => {
   popupImage.src = link;
   popupImage.alt = name;
   popupText.textContent = name;
+  openPopup(popup);
 };
 
+const profileFormvalidator = new FormValidator(config, profilePopupForm);
+profileFormvalidator.enableValidation();
+
+const cardFormvalidator = new FormValidator(config, cardPopupForm);
+cardFormvalidator.enableValidation();
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
@@ -47,6 +53,8 @@ const openPopup = (popup) => {
 const handleClose = (popup) => {
   document.removeEventListener('keydown', closeByEsc)
   popup.classList.remove('popup_opened');
+  cardFormvalidator.resetValidation();
+  profileFormvalidator.resetValidation();
 };
 
 const closeByEsc = (e) => {
@@ -60,9 +68,13 @@ const renderCard = (cardItem) => {
   elementsContainer.prepend(cardItem);
 };
 
+const createCard = (object, el, popup, func) => {
+  const cardObj = new Card(object, el, popup, func);
+  return cardObj.generateCard();
+};
+
 initialCards.forEach((item) => {
-    const card = new Card(item, '.element', imagePopup, openPopup, setPopupImageAttributes);
-    renderCard(card.generateCard());
+    renderCard(createCard(item, '.element', imagePopup, setPopupImageAttributes));
   });
 
 const handleAddNewPlaceSubmit = (e) => {
@@ -72,15 +84,18 @@ const handleAddNewPlaceSubmit = (e) => {
   cardPopupInputName.value = '';
   cardPopupInputLink.value = '';
 
-  e.submitter.classList.add('popup__submit-button_disabled');
-  e.submitter.disabled = true;
+  // e.submitter.classList.add('popup__submit-button_disabled');
+  // e.submitter.disabled = true;
+
+  cardFormvalidator.resetValidation();
 
   const card = {
     name,
     link,
   };
 
-  renderCard(createCardElement(card));
+  const cardObj = new Card(card, '.element', imagePopup, setPopupImageAttributes);
+  renderCard(cardObj.generateCard());
 
   handleClose(cardPopup);
 };
@@ -112,12 +127,6 @@ popupList.forEach((popup) => {
   });
   
 });
-
-const profileFormvalidator = new FormValidator(config, profilePopupForm);
-profileFormvalidator.enableValidation();
-
-const cardFormvalidator = new FormValidator(config, cardPopupForm);
-cardFormvalidator.enableValidation();
 
 cardPopupForm.addEventListener("submit", handleAddNewPlaceSubmit);
 profilePopupForm.addEventListener("submit", submitProfilePopupForm);
