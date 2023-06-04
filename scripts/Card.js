@@ -4,7 +4,6 @@ export class Card {
     this._link = card.link;
     this._templateSelector = templateSelector;
     this._popup = popup;
-    // this._openPopup = openPopup;
     this._setPopupImageAttributes = setPopupImageAttributes;
   }
 

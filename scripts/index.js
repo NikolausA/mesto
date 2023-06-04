@@ -46,6 +46,8 @@ const cardFormvalidator = new FormValidator(config, cardPopupForm);
 cardFormvalidator.enableValidation();
 
 const openPopup = (popup) => {
+  cardFormvalidator.resetValidation();
+
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEsc)
 };
@@ -84,27 +86,23 @@ const handleAddNewPlaceSubmit = (e) => {
   cardPopupInputName.value = '';
   cardPopupInputLink.value = '';
 
-  // e.submitter.classList.add('popup__submit-button_disabled');
-  // e.submitter.disabled = true;
-
-  cardFormvalidator.resetValidation();
-
   const card = {
     name,
     link,
   };
 
-  const cardObj = new Card(card, '.element', imagePopup, setPopupImageAttributes);
-  renderCard(cardObj.generateCard());
+  renderCard(createCard(card, '.element', imagePopup, setPopupImageAttributes));
 
   handleClose(cardPopup);
 };
 
 const submitProfilePopupForm = (event) => {
   event.preventDefault(event);
-  handleClose(profilePopup);
+  
   profileName.textContent = profilePopupInputName.value;
   profileProfession.textContent = profilePopupInputProfession.value;
+
+  handleClose(profilePopup);
 }
 
 profilePopupOpenButton.addEventListener("click", () => {
