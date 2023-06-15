@@ -1,7 +1,8 @@
-import {initialCards} from "./initialCards.js";
-import {Card} from "./Card.js";
-import {FormValidator} from "./FormValidator.js";
-import {enableValidation as config} from "./configValidation.js";
+import {initialCards} from "../utils/initialCards.js";
+import {Card} from "../components/Card.js";
+import {FormValidator} from "../components/FormValidator.js";
+import Section from '../components/Section.js';
+import {enableValidation as config} from "../utils/configValidation.js";
 
 
 const cardTemplate = document.querySelector(".card-template");
@@ -66,18 +67,30 @@ const closeByEsc = (e) => {
   }
 };
 
-const renderCard = (cardItem) => {
-  elementsContainer.prepend(cardItem);
-};
+// const renderCard = (cardItem) => {
+//   elementsContainer.prepend(cardItem);
+// };
 
-const createCard = (object, el, popup, func) => {
-  const cardObj = new Card(object, el, popup, func);
-  return cardObj.generateCard();
-};
+// const createCard = (object, el, popup, func) => {
+//   const cardObj = new Card(object, el, popup, func);
+//   return cardObj.generateCard();
+// };
 
-initialCards.forEach((item) => {
-    renderCard(createCard(item, '.element', imagePopup, setPopupImageAttributes));
-  });
+// initialCards.forEach((item) => {
+//     renderCard(createCard(item, '.element', imagePopup, setPopupImageAttributes));
+//   });
+
+const cardList = new Section({
+  items: initialCards,
+  renderer: (cardItem) => {
+    const card = new Card(cardItem, '.element');
+    const cardElement = card.generateCard();
+    cardList.addItem(cardElement);
+  }
+}, elementsContainer);  
+
+cardList.renderItems();
+
 
 const handleAddNewPlaceSubmit = (e) => {
   e.preventDefault();
@@ -91,7 +104,11 @@ const handleAddNewPlaceSubmit = (e) => {
     link,
   };
 
-  renderCard(createCard(card, '.element', imagePopup, setPopupImageAttributes));
+  const createdCard = new Card(card, '.element');
+    const cardElement = createdCard.generateCard();
+    cardList.addItem(cardElement);
+
+  // renderCard(createCard(card, '.element', imagePopup, setPopupImageAttributes));
 
   handleClose(cardPopup);
 };
