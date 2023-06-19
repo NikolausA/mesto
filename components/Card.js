@@ -1,7 +1,8 @@
 export class Card {
-  constructor(card, templateSelector) {
+  constructor({card, handleCardClick}, templateSelector) {
     this._name = card.name;
     this._link = card.link;
+    this._handleCardClick = handleCardClick;
     this._templateSelector = templateSelector;
   }
 
@@ -25,7 +26,14 @@ export class Card {
     return this._element;
   }
 
+  setEventListeners() {
+    this._element.addEvenListener('click', () => {
+      this._handleCardClick(this._name, this._link);
+    })
+  }
 }
+
+
 
 // constructor(card, templateSelector, popup, setPopupImageAttributes) {
 //     this._name = card.name;

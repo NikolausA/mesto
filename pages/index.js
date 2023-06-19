@@ -3,6 +3,7 @@ import {Card} from "../components/Card.js";
 import {FormValidator} from "../components/FormValidator.js";
 import Section from '../components/Section.js';
 import {enableValidation as config} from "../utils/configValidation.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 
 const cardTemplate = document.querySelector(".card-template");
@@ -80,14 +81,23 @@ const closeByEsc = (e) => {
 //     renderCard(createCard(item, '.element', imagePopup, setPopupImageAttributes));
 //   });
 
+
 const cardList = new Section({
   items: initialCards,
   renderer: (cardItem) => {
-    const card = new Card(cardItem, '.element');
+    const card = new Card({
+      cardItem: cardItem,
+      handleCardClick: () => {
+        const popupWithImage = new PopupWithImage(imagePopup, cardItem);
+        popupWithImage.open();
+      }
+    }, '.element');
+
     const cardElement = card.generateCard();
+    cardElement.setEventListeners();
     cardList.addItem(cardElement);
   }
-}, elementsContainer);  
+}, elementsContainer);
 
 cardList.renderItems();
 
